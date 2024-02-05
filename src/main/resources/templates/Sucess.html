@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Mensagem enviada com sucesso</title>
+    <style>
+        body {
+          background-color: #e0e0e0; /* Gray background */
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100vh;
+        }
+
+        #messageContainer {
+          background-color: #3498db; /* Blue container */
+          color: #ffffff; /* White text */
+          padding: 20px;
+          border-radius: 10px;
+          text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div id="messageContainer">
+    <h2>MQ Messages</h2>
+
+    <p><strong>Sent Message:</strong></p><p th:text="${messageDTO.messageTextSend}" id="messageSend"></p>
+    <p><strong>Received Message:</strong></p><p th:text="${messageDTO.messageTextReceived}" id="messageReceived"></p>
+</div>
+
+</body>
+</html>
+

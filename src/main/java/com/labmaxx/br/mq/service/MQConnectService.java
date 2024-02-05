@@ -3,6 +3,7 @@ package com.labmaxx.br.mq.service;
 import com.ibm.msg.client.jms.JmsConnectionFactory;
 import com.ibm.msg.client.jms.JmsFactoryFactory;
 import com.ibm.msg.client.wmq.WMQConstants;
+import com.labmaxx.br.mq.model.MessageDTO;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -70,7 +71,10 @@ public class MQConnectService {
         return parameter;
     }
 
-    public static void connect() {
+    public static MessageDTO connect() {
+
+        //create MessageDTO object to store the message that will be sent and received
+        MessageDTO messageDTO = new MessageDTO();
 
         try {
 
@@ -99,12 +103,12 @@ public class MQConnectService {
 
             producer = context.createProducer();
             producer.send(destination, message);
-            System.out.println("Sent message:\n" + message);
+            messageDTO.setMessageTextSend(message.getText());
 
             consumer = context.createConsumer(destination); // autoclosable
             String receivedMessage = consumer.receiveBody(String.class, 15000); // in ms or 15 seconds
 
-            System.out.println("\nReceived message:\n" + receivedMessage);
+            messageDTO.setMessageTextReceived(receivedMessage);
 
         } catch (JMSException jmsex) {
             System.out.println(jmsex.getErrorCode());
@@ -113,6 +117,8 @@ public class MQConnectService {
                 context.close();
             }
         }
+
+        return messageDTO;
     }
 }
 
