@@ -1,0 +1,12 @@
+{
+  "platform": "ibmmq-on-cloud",
+  "queueManagerName": "MQ.LABS",
+  "hostname": "mq-labs-5aec.qm.us-south.mq.appdomain.cloud",
+  "listenerPort": 31058,
+  "applicationChannelName": "CLOUD.APP.SVRCONN",
+  "adminChannelName": "CLOUD.ADMIN.SVRCONN",
+  "deploymentLocation": "bmx-us-south",
+  "webConsoleURL": "https://web-mq-labs-5aec.qm.us-south.mq.appdomain.cloud/ibmmq/console",
+  "messagingREST": "https://web-mq-labs-5aec.qm.us-south.mq.appdomain.cloud/ibmmq/rest/v1/messaging/qmgr/MQ.LABS/queue/(queue_name)/message",
+  "adminREST": "https://web-mq-labs-5aec.qm.us-south.mq.appdomain.cloud/ibmmq/rest/v1/admin/qmgr/MQ.LABS"
+}
